@@ -87,7 +87,7 @@ class App extends Component {
         this.state.simpleEscrowInstance.deposit({
             'from': this.state.accounts[0],
             gas: 3000000,
-            value: 100
+            value: parseInt(this.state.amountToDeposit)
         }).then((result) => {
             console.log('saved new deposit: ', result);
         });
@@ -108,7 +108,7 @@ class App extends Component {
                             <p><strong>buyer address: {this.state.buyerAddress} </strong></p>
                             <p><strong>seller address: {this.state.sellerAddress} </strong></p>
                             <p><strong>your adress is: {this.state.addressOfCurrentWallet} </strong></p>
-                            
+
                             <p>submit a new value as deposit (only the buyer should call this function)</p>
                             <input type="text" name="amountToDeposit" value={this.state.amountToDeposit}
                                    onChange={this.handleAmountToDepositUpdate}/>
