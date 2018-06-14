@@ -15,7 +15,9 @@ This escrow smart contract does the following things:
 * The buyer can call the accept() function to indicate that he is okay with the payment
 * The buyer can call the cancel() function to indicate that he disagrees with the service
 * The seller can call the cancel() function to indicate that he disagrees with the service
-* only the us (the escrow service) can make the payment from the escrow contract to the seller
+* only us (the escrow service) can make the payment from the escrow contract to the seller
+* only us (the escrow service) can refund the deposit (minus the escrow fee) from the escrow contract to the buyer
+* only us (the escrow service) can kill the contract and refund the funds to the buyer
 
 
 
@@ -23,12 +25,21 @@ This escrow smart contract does the following things:
 
 ## run a local development blockchain and compile the contracts:
 
-`npm install -g truffle`
+`npm install -g truffle` <br>
 ` truffle develop` --> this will also run a local test blockchain on your machine on port 9545
 
 within the development console run
 `compile`
-'migrate'
+`migrate --reset`
+
+# set the right initial values for the Escrow contract
+in the file `migrations/2_deploy_contracts.js` change the buyer and seller addresses in this line
+<br>
+`deployer.deploy(SimpleEscrow, '0x627306090abab3a6e1400e9345bc60c78a8bef57', '0xf17f52151ebef6c7334fad080c5704d77216b732');`
+<br>
+to two addresses from the truffle develop command that you ran before
+
+
 
 ## Install Metamask and connect it to your locally running blockchain.
 
@@ -40,8 +51,9 @@ In the metamask extension click on import account and type in one of the private
 
 
 ## run the dapp frontend:
- // Serves the front-end on http://localhost:3000
-'npm run start'
+ // Serves the front-end on http://localhost:3000 <br>
+`npm run start`
+
 
 
 useful sources and links for this example.:
