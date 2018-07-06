@@ -17,8 +17,9 @@ module.exports = {
     sokol: {
       provider: providerSokol,
       network_id: 77, // eslint-disable-line camelcase
+      from: '0xb0d5fa336f575d9a9f49a454a7e6b71874c4e15f',
       port: 443,
-      gasPrice: "10000000000",
+      gasPrice: "100000",
       gas: 5000000,
     }
  }
