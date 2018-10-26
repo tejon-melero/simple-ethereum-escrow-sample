@@ -57,10 +57,10 @@ contract SimpleEscrow {
     }
 
     function deposit() public payable {
-        if (msg.sender == buyer) {
+        //if (msg.sender == buyer) {
             balance += msg.value;
             // if somebody other than the buyer deposits money to this smart contract the deposited money will be lost
-        }
+        //}
     }
 
     function cancel() public {

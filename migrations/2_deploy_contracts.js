@@ -1,4 +1,3 @@
-var SimpleStorage = artifacts.require("./SimpleStorage.sol");
 var SimpleEscrow = artifacts.require("./SimpleEscrow.sol");
 
 
